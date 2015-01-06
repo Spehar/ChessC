@@ -3,13 +3,15 @@
 using namespace std;
 
 class board{
+  friend class Piece;
 
   private:
-	char Board[9][9];
+	char Board[8][8];
 
   public:
 	board();
-	void printBoard();
+	void printBoardWhite();
+	void printBoardBlack();
 };
 
 class Piece{
@@ -19,7 +21,7 @@ class Piece{
 	char* Board_pos;
 	
   public:
-	Piece();
+	Piece(int r, int c, board board1);
 	bool Check_valid();
 	void Move();
 };
@@ -27,11 +29,14 @@ class Piece{
 class Pawn: public Piece{
 
   private:
-	bool promote;
-	bool En_pessant;
+	static char symbol = P;
+	bool promote();
+	bool En_pessant();
 
   public:
 	Pawn();
+	void remove();
+	static const char symbol = P;
 };
 
 class Knight: public Piece{

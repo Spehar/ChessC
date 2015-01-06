@@ -11,27 +11,65 @@ board::board(){
 	}
 }
 
-void board::printBoard(){
+void board::printBoardWhite(){
 	for (int i = 0; i < 9; i++){
 		for (int j = 0; j < 9; j++){
 
-			if (i == 0){
+			if (i == 8){
 				if (j == 0){
-					cout << "  ";
+					cout << "    ";
 				}
 			
 				else{
-					cout << (0+j) << " ";
+					cout << (j) << "   ";
 				}
 			}
 
 			else if (j == 0){
-				cout << (char)('a'+i-1) << " ";
+				cout << (char)('h'-i) << "   ";
 			}
 
-			else
-				cout << Board[i-1][j-1] << " ";
+			else{
+				cout << Board[i][j-1] << "   ";
+			}
 		}
 		cout << endl << endl;
 	}
 }
+
+void board::printBoardBlack(){
+	for (int i = 0; i < 9; i++){
+		for (int j = 0; j < 9; j++){
+
+			if (i == 8){
+				if (j == 0){
+					cout << "    ";
+				}
+			
+				else{
+					cout << (9-j) << "   ";
+				}
+			}
+
+			else if (j == 0){
+				cout << (char)('a'+i) << "   ";
+			}
+
+			else
+				cout << Board[i][j-1] << "   ";
+		}
+		cout << endl << endl;
+	}
+}
+
+
+
+
+Piece::Piece(int r, int c, board board1)	:	Board_pos(&board1.Board[r][c]){}
+
+
+
+
+
+
+
