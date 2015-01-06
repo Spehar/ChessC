@@ -12,14 +12,14 @@ class board{
 	void printBoard();
 };
 
-class Peice{
+class Piece{
   friend class board;
 
   private:
 	char* Board_pos;
 	
   public:
-	Peice();
+	Piece();
 	bool Check_valid();
 	void Move();
 };
