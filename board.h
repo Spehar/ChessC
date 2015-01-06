@@ -56,6 +56,7 @@ class Queen: public Piece{
 
   public:
 	Queen();
+
 };
 
 class King: public Piece{
